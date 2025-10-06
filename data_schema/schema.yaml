@@ -1,0 +1,174 @@
+columns:
+  -url:str
+  -length_url:int 64        	
+  -length_hostname:int 64  
+  -ip:int 64
+  -nb_dots	:int 64
+  -nb_hyphens:int 64
+  -nb_at	:int 64
+  -nb_qm	:int 64
+  -nb_and	:int
+  -nb_or	:int 64
+  -nb_eq	:int 64
+  -nb_underscore:int 64	
+  -nb_tilde	:int 64
+  -nb_percent	:int 64
+  -nb_slash	:int 64
+  -nb_star:int 64
+  -nb_colon:int 64	
+  -nb_comma	:int 64
+  -nb_semicolumn	:int 64
+  -nb_dollar	:int 64
+  -nb_space	:int 64
+  -nb_www	:int 64
+  -nb_com	:int 64
+  -nb_dslash	:int 64
+  -http_in_path	:int 64 
+  -https_token	:int 64
+  -ratio_digits_url	:int  64
+  -ratio_digits_host:int 64
+  -punycode	port:int 64
+  -tld_in_path:int 64
+  -tld_in_subdomain:int 64	
+  -abnormal_subdomain	:int 64
+  -nb_subdomains:int 64	
+  -prefix_suffix	:int 64
+  -random_domain	:int 64
+  -shortening_service	:int 64
+  -path_extension	:int 64
+  -nb_redirection	:int 64
+  -nb_external_redirection:int 64
+  -length_words_raw:int 64
+  -char_repeat:int 64
+  -shortest_words_raw	shortest_word_host:int 64	
+  -shortest_word_path	:int 64
+  -longest_words_raw:int 64
+  -longest_word_host	:int 64
+  -longest_word_path:int 64 
+  -avg_words_raw	:int 64
+  -avg_word_host:int 64
+  -avg_word_path:int 64
+  -phish_hints:int 64
+  -domain_in_brand:int 64
+  -brand_in_subdomain:int 64	
+  -brand_in_path	: int 64
+  -suspecious_tld	:   int 64
+  -statistical_report	:int 64
+  -nb_hyperlinks:int 64
+  -ratio_intHyperlinks:int 64	
+  -ratio_extHyperlinks	:int 64
+  -ratio_nullHyperlinks	:int 64
+  -nb_extCSS	:int 64
+  -ratio_intRedirection: int 64	
+  -ratio_extRedirection:int 64
+  -ratio_intErrors:int 64
+  -ratio_extErrors	:int 64
+  -login_form	external_favicon:int 64	
+  -links_in_tags	:int 64
+  -submit_email	:int 64
+  -ratio_intMedia	:int 64
+  -ratio_extMedia	:int 64
+  -sfh	:int 64
+  -iframe	:int 64
+  -popup_window	:int 64
+  -safe_anchor	:int 64
+  -onmouseover	:int 64
+  -right_clic	:int 64
+  -empty_title	:int 64
+  -domain_in_title	:int 64
+  -domain_with_copyright:int 64
+  -whois_registered_domain:int 64
+  -domain_registration_length	:int 64
+  -domain_age	:int 64
+  -web_traffic	:int 64
+  -dns_record	:int 64
+  -google_index	:int 64
+  -page_rank	:int 64
+  -status:str
+
+numerical_columns:
+  -length_url	
+  -length_hostname	
+  -ip	
+  -nb_dots	
+  nb_hyphens	
+  -nb_at	
+  -nb_qm	
+  -nb_and	
+  -nb_or	
+  -nb_eq	
+  -nb_underscore	
+  -nb_tilde	
+  -nb_percent
+  -nb_slash
+  -nb_star
+  -nb_colon	
+  -nb_comma	
+  -nb_semicolumn	
+  -nb_dollar	
+  -nb_space	
+  -nb_www	
+  -nb_com	
+  -nb_dslash	
+  -http_in_path	
+  -https_token	
+  -ratio_digits_url	
+  -ratio_digits_host	
+  -punycode	
+  -port	
+  -tld_in_path	tld_in_subdomain	
+  -abnormal_subdomain	
+  -nb_subdomains	
+  -prefix_suffix	
+  -random_domain	
+  -shortening_service	
+  -path_extension	
+  -nb_redirection	
+  -nb_external_redirection	
+  -length_words_raw	
+  -char_repeat	shortest_words_raw	
+  -shortest_word_host	
+  -shortest_word_path	
+  -longest_words_raw	
+  -longest_word_host	
+  -longest_word_path	
+  -avg_words_raw	
+  -avg_word_host	
+  -avg_word_path	
+  -phish_hints	domain_in_brand	
+  -brand_in_subdomain	
+  -brand_in_path	
+  -suspecious_tld	
+  -statistical_report	
+  -nb_hyperlinks	
+  -ratio_intHyperlinks	
+  -ratio_extHyperlinks	
+  -ratio_nullHyperlinks	
+  -nb_extCSS	ratio_intRedirection	
+  -ratio_extRedirection	
+  -ratio_intErrors	
+  -ratio_extErrors	
+  -login_form	
+  -external_favicon	
+  -links_in_tags	submit_email	
+  -ratio_intMedia	
+  -ratio_extMedia	
+  -sfh	
+  -iframe	
+  -popup_window	
+  -safe_anchor	
+  -onmouseover	
+  -right_clic	
+  -empty_title	
+  -domain_in_title	
+  -domain_with_copyright
+  -whois_registered_domain	
+  -domain_registration_length	
+  -domain_age	
+  -web_traffic	
+  -dns_record	
+  -google_index	
+  -page_rank
+
+
+
