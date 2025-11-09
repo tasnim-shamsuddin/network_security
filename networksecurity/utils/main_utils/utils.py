@@ -26,4 +26,11 @@ def write_yaml_file(file_path:str, content=object, replace:bool=True)->None:
     except Exception as e:
         raise NetworkSecurityException(e, sys) from e
     
-    
+    def save_object(file_path:str, obj:object)->None:
+        try:
+            logging.info(f"Saving object file : {file_path}")
+            os.makedirs(os.path.dirname(file_path), exist_ok=True)
+            with open(file_path, 'wb') as file_obj:
+                pickle.dump(obj, file_obj)
+        except Exception as e:
+            raise NetworkSecurityException(e, sys) from e

@@ -1,23 +1,18 @@
 from datetime import datetime
 import os
 import sys
-
 from networksecurity.constants.training_pipeline import training_pipeline
-
 print(training_pipeline.PIPELINE_NAME)
 print(training_pipeline.ARTIFACT_DIR)
 
 class TrainingPipelineConfig:
     def __init__(self,time_stamp=datetime.now()):    
-         time_stamp=timestamp.strftime("%m%d%Y__%H%M%S")
-        
+        time_stamp=timestamp.strftime("%m%d%Y__%H%M%S")
         self.pipeline_name = training_pipeline.PIPELINE_NAME
         self.artifact_name = training_pipeline.ARTIFACT_DIR
         self.artifact_dir=os.path.join(self.artifact_name,time_stamp)
         self.timestamp:str=time_stamp    
-            
-        
-
+                
 class DataIngestionConfig:
     def __init__(self, training_pipeline_config:TrainingPipelineConfig):
         try:
@@ -104,3 +99,21 @@ class DataValidationConfig:
             )
         except Exception as e:
             raise NetworkSecurityException(e, sys)
+
+class DataTransformationConfig:
+    def __init__(self, training_pipeline_config):
+        self.data_transformation_dir = os.path.join(
+            training_pipeline_config.artifact_dir, training_pipeline.DATA_TRANSFORMATION_DIR_NAME
+        )
+        self.data_transformation_train_file_path = os.path.join(
+            self.data_transformation_dir, training_pipeline.DATA_TRANSFORMATION_TRAIN_FILE_NAME
+        )
+        self.data_transformation_test_file_path = os.path.join(
+            self.data_transformation_dir, training_pipeline.DATA_TRANSFORMATION_TEST_FILE_NAME
+        )
+        self.preprocessed_object_file_path = os.path.join(
+            self.data_transformation_dir, training_pipeline.PREPROCESSING_OBJECT_FILE_NAME
+        )
+        self.data_transformation_drift_report_file_path = os.path.join(
+            self.data_transformation_dir, training_pipeline.DATA_DRIFT_REPORT_FILE_NAME
+        )
