@@ -117,3 +117,24 @@ class DataTransformationConfig:
         self.data_transformation_drift_report_file_path = os.path.join(
             self.data_transformation_dir, training_pipeline.DATA_DRIFT_REPORT_FILE_NAME
         )
+
+class ModelTrainerConfig:
+    def __init__(self, training_pipeline_config:TrainingPipelineConfig):
+        try:
+            self.model_trainer_dir : str= os.path.join(
+                training_pipeline_config.artifact_dir,
+                training_pipeline.MODEL_TRAINER_DIR_NAME,
+                f"{datetime.now().strftime('%m%d%Y__%H%M%S')}"
+            )
+
+            self.trained_model_file_path : str= os.path.join(
+                self.model_trainer_dir,
+                training_pipeline.MODEL_TRAINER_TRAINED_MODEL_DIR,
+                training_pipeline.MODEL_TRAINER_TRAINED_MODEL_NAME
+            )
+
+            self.expected_score : float = training_pipeline.MODEL_TRAINER_EXPECTED_SCORE
+            self.overfitting_underfitting_threshold : float = training_pipeline.MODEL_TRAINER_OVERFITTING_UNDERFITTING_THRESHOLD
+          
+        except Exception as e:
+            raise NetworkSecurityException(e, sys)

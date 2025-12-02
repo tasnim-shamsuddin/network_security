@@ -26,7 +26,7 @@ def write_yaml_file(file_path:str, content=object, replace:bool=True)->None:
     except Exception as e:
         raise NetworkSecurityException(e, sys) from e
     
-    def save_object(file_path:str, obj:object)->None:
+def save_object(file_path:str, obj:object)->None:
         try:
             logging.info(f"Saving object file : {file_path}")
             os.makedirs(os.path.dirname(file_path), exist_ok=True)
@@ -34,3 +34,34 @@ def write_yaml_file(file_path:str, content=object, replace:bool=True)->None:
                 pickle.dump(obj, file_obj)
         except Exception as e:
             raise NetworkSecurityException(e, sys) from e
+
+def load_object(file_path:str)->object:
+        try:
+            logging.info(f"Loading object file : {file_path}")
+            with open(file_path, 'rb') as file_obj:
+                return pickle.load(file_obj)
+        except Exception as e:
+            raise NetworkSecurityException(e, sys) from e
+        
+def load_numpy_array_data(file_path:str)->np.ndarray:
+    try:
+        logging.info(f"Loading numpy array data from file : {file_path}")
+        with open(file_path, 'rb') as file_obj:
+            return np.load(file_obj)
+    except Exception as e:
+        raise NetworkSecurityException(e, sys) from e
+
+def evaluate_models(x_train, y_train, x_test, y_test,models,param):
+    try:
+        report = {}
+        for i in range(len(list(models))):
+            model = list(models.values())[i]
+            para = param[list(models.keys())[i]]
+            gs = GridSearchCV(model, para, cv=3)
+            gs.fit(x_train, y_train)
+            model.set_params(**gs.best_params_)
+            model.fit(x_train, y_train)
+
+            y_test_pred = model.predict(x_test)
+            test_model_score = accuracy_score(y_test, y_test_pred)
+            report[list(models.keys())[i]] = test_model_score
