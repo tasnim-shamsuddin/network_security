@@ -93,7 +93,10 @@ class DataTransformation:
             logging.info("Saving transformed training and testing array")
             save_numpy_array_data(self.data_transformation_config.data_transformation_train_file_path, array=train_arr)
             save_numpy_array_data(self.data_transformation_config.data_transformation_test_file_path, array=test_arr)
-            
+            save_object(self.data_transformation_config.preprocessed_object_file_path,
+                        obj=preprocessor_object)
+            save_object("final_model/preprocessor.pkl",preprocessor_object)
+
             #saving imputer object
             logging.info("Saving imputer object")
             save_object(self.data_transformation_config.preprocessed_object_file_path, obj=imputer)
